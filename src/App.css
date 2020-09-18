@@ -1,0 +1,8 @@
+.MuiToolbar-root {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.MuiToolbar-root h6 {
+  font-size: x-large !important;
+}

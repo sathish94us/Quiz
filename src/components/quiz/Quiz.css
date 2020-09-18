@@ -1,0 +1,71 @@
+.cl-options-button {
+    float: right;
+    margin: 20px 10px;
+}
+
+.cl-options-button button:first-child {
+    margin-right: 15px;
+}
+
+.MuiPaper-root {
+    padding: 10px;
+}
+
+.MuiListItemText-primary {
+    font-weight: bold !important;
+    font-size: large !important;
+}
+
+.MuiFormControlLabel-label {
+    font-size: 15px !important;
+}
+
+.MuiPaper-outlined {
+    border: none !important;
+}
+
+.MuiFormGroup-root {
+    margin-left: 5px;
+}
+
+.cl-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.MuiCircularProgress-static {
+    width: 70px !important;
+    height: 70px !important;
+}
+
+.MuiCircularProgress-circle {
+    fill: #d5d5eb !important;
+    stroke-width: 2.5px;
+}
+
+.cl-timer {
+    margin-left: 50%;
+    margin-top: 70px;
+    transform: translateX(-50%);
+}
+
+.cl-timer-text {
+    font-weight: bold !important;
+    color: black !important;
+    font-size: x-large !important;
+}
+
+.cl-timer-warning {
+    color: red !important;
+}
+
+.cl-contents {
+    width: 75% !important;
+    max-width: 800px;
+}
+
+@media only screen and (max-width: 700px) {
+    .cl-contents {
+        width: 100% !important;
+  }
+}

@@ -1,0 +1,79 @@
+.cl-find-container {
+    height: 100vh;
+    margin: 10px;
+}
+
+.cl-perfect-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cl-paper {
+    margin: 10px;
+    padding: 10px;
+    min-width: 275px;
+}
+
+.cl-paper-bg {
+    background-color: #e1f0e1 !important;
+    text-align: center;
+}
+
+/* .cl-center-container > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.MuiTableContainer-root {
+    width: 75% !important;
+    max-width: 800px;
+} */
+
+.cl-center-container > div {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75% !important;
+    max-width: 800px;
+}
+
+.cl-center-container > div > button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 20px 0;
+}
+
+.MuiTableCell-head {
+    font-weight: bold !important;
+    background-color: #d5d5eb !important;
+}
+
+.MuiPaper-root {
+    padding: 0px !important;
+}
+
+.MuiTableBody-root .MuiTableRow-root:nth-child(even) {
+    background-color: rgb(244 244 244) !important;
+}
+
+.cl-thanks-card {
+    font-size: x-large !important;
+    text-align: center;
+    padding: 20px;
+}
+
+.cl-thanks-card > span {
+    font-size: x-large !important;
+}
+
+/* @media only screen and (max-width: 400px) {
+    .cl-center-container > * {
+        margin-top: 110px;
+    }
+} */
+
+

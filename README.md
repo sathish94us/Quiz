@@ -5,5 +5,4 @@ On click of last submit answer button it goes to Result.js to show selected answ
 ## Redux stores
 questions.js - to store questions and selected answers
 actions.js - to perform operations such as getting quizes and submitting answers
-
-Perform npm install and run npm start.
+Just unzip and perform npm install
