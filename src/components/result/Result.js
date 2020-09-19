@@ -13,6 +13,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import './Result.css';
+import * as actionCreators from '../../store/actions';
 
 class Result extends Component {
 
@@ -51,7 +52,8 @@ class Result extends Component {
     // Goes to quiz page on click of Play Again Button
     goToQuizPage() {
         // Redirect to quiz page
-        window.location.href = "/quiz";
+        this.props.reset();
+        this.props.history.push("/quiz");
     }
 
     render() {
@@ -97,7 +99,7 @@ class Result extends Component {
             <div>
                 <ListItemText className="cl-thanks-card" primary="Thanks for playing quiz" />
                 {table}
-                <Button onClick={() => this.goToQuizPage()} variant="contained" color="primary">Play Again</Button>
+                <Button onClick={this.goToQuizPage.bind(this)} variant="contained" color="primary">Play Again</Button>
             </div>
         </div>
     }
@@ -111,4 +113,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(Result);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        reset: () => {
+            return dispatch(actionCreators.reset())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Result);

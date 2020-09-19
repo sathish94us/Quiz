@@ -2,13 +2,14 @@ var initialState = {
     questions: [],
     submitted: [],
     timeout: 20,
-    limit: 4
+    limit: 4,
+    error: null
 }
 
 const questionsReducer = (state = initialState, action) => {
     var oldState = { ...state };
     switch (action.type) {
-        // When fetches questions through api calls, but now i am referring from json.
+        // When fetches questions through api call.
         case "addQuestions": {
             oldState.questions = action.value;
             break;
@@ -27,6 +28,20 @@ const questionsReducer = (state = initialState, action) => {
             oldState = {...state, submitted: submitted};
             break;
         }
+
+        case "reset": {
+            // Resets all submitted answers
+            oldState = {...state, submitted: [], timeout: 20}
+            break;
+        }
+
+        case "addError": {
+            oldState = {...state, error: "Something went wrong. Please "};
+            break;
+        }
+
+        default:
+            break
     }
     return oldState;
 }

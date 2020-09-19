@@ -1,11 +1,15 @@
-import { questions } from '../quiz';
+import axios from 'axios';
 
 // Adds questions to store
 const fetchQuestions = () => {
     return (dispatch) => {
-        dispatch({
-            type: "addQuestions",
-            value: questions
+        axios.get("quiz.json").then(response => {
+            dispatch({
+                type: "addQuestions",
+                value: response.data
+            })
+        }).catch(() => {
+            dispatch(addError())
         })
     }
 }
@@ -19,4 +23,18 @@ const submitAnswer = (questionIndex, answerIndex) => {
     }
 }
 
-export { fetchQuestions, submitAnswer };
+// Handles error
+const addError = () => {
+    return {
+        type: "addError"
+    }
+}
+
+// Resets store
+const reset = () => {
+    return {
+        type: "reset"
+    }
+}
+
+export { fetchQuestions, submitAnswer, reset };

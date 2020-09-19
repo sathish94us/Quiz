@@ -17,6 +17,7 @@ import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 class Quiz extends Component {
 
@@ -33,8 +34,8 @@ class Quiz extends Component {
 
     componentDidMount() {
         // Loads questions
-        this.generateNextQuestion();
         this.props.fetchQuestions();
+        this.generateNextQuestion();
     }
 
     // On click of submit anser button
@@ -111,7 +112,8 @@ class Quiz extends Component {
         var contentToShow = null;
         var currentQuestion = null;
         var loading = null;
-        if (this.props.questions.length >= this.props.limit) {
+        var error = null;
+        if (this.props.questions.length >= this.props.limit && (this.props.error === null || this.props.error === undefined || this.props.error === "")) {
             var item = this.props.questions[this.state.randomIndex];
             var progress = (this.props.timeout - this.state.timer) / this.props.timeout;
             var timerClasses = "cl-timer-text";
@@ -152,6 +154,11 @@ class Quiz extends Component {
                 </div>
             </div>)
         }
+        else if (!!this.props.error && this.props.error.length > 0) {
+            error = (<h3>{this.props.error}<Link to="quiz">
+                <Button variant="contained" color="primary">TRY AGAIN</Button>
+            </Link></h3>)
+        }
         else {
             // Loader
             loading = (<Backdrop open={true}>
@@ -161,6 +168,7 @@ class Quiz extends Component {
         contentToShow = (<div className="cl-contents">
             {currentQuestion}
             {loading}
+            {error}
         </div>);
         return (
             <React.Fragment>
@@ -182,7 +190,8 @@ const mapStateToProps = (state) => {
         questions: state.questions,
         submitted: state.submitted,
         timeout: state.timeout,
-        limit: state.limit
+        limit: state.limit,
+        error: state.error
     }
 }
 
